@@ -6,12 +6,12 @@ using System.Threading.Tasks;
 
 namespace BinarySearchTree
 {
-    public class BinaryTreeCreate<T> where T : IComparable<T>
+    public class BinaryTree<T> where T : IComparable<T>
     {
         public T NodeData { get; set; }
-        public BinaryTreeCreate<T> LeftTree { get; set; }
-        public BinaryTreeCreate<T> RightTree { get; set; }
-        public BinaryTreeCreate(T nodeData)
+        public BinaryTree<T> LeftTree { get; set; }
+        public BinaryTree<T> RightTree { get; set; }
+        public BinaryTree(T nodeData)
         {
             this.NodeData = nodeData;
             this.LeftTree = null;
@@ -25,14 +25,14 @@ namespace BinarySearchTree
             if ((CurrentNodeValue.CompareTo(item)) > 0)
             {
                 if (this.LeftTree == null)
-                    this.LeftTree = new BinaryTreeCreate<T>(item);
+                    this.LeftTree = new BinaryTree<T>(item);
                 else
                     this.LeftTree.Insert(item);
             }
             else
             {
                 if (this.RightTree == null)
-                    this.RightTree = new BinaryTreeCreate<T>(item);
+                    this.RightTree = new BinaryTree<T>(item);
                 else
                     this.RightTree.Insert(item);
             }
@@ -53,7 +53,7 @@ namespace BinarySearchTree
         }
         public void GetSize()
         {
-            Console.WriteLine("Size" + " " + (1 + this.leftCount + this.rightCount));
+            Console.WriteLine("Size " + (1 + this.leftCount + this.rightCount));
         }
     }
 }
